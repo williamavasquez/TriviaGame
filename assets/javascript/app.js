@@ -2,10 +2,8 @@ $(document).ready(function(){
 
 	var QuesDisplayed = {
 		question: "How old is your mom",
-		ans1: "wrong",
-		ans2:"wrong",
-		ans3:"wrong",
-		ans4:"right",
+		choices:[10,20,30,50],
+    answer: 40,
 	};
 
 // This button will start the game - execute the function
@@ -13,47 +11,35 @@ $(document).ready(function(){
 	
 	// This is the game function, all the game will ocurre inside startGame
 	function startGame(){
-		console.log("this is the start of the game");
-
+    // start the countdown - 30sec
+    stopwatch.reset();
+    // display the questions
 	}
 
-	// when the player begins the game, the start will disapear 
+	// when the player begins the game, the start button will disapear 
 	function play() {
 		$('button').hide('<button>');
 		startGame();
 	};
 
+// 30 second Clock
 stopwatch = {
   time:0,
   reset:function(){
-    stopwatch.time = 0;
-    $('#display').html("00:00");
-    //change the "display" div to "00:00"
-  	},
-  start: function(){
-      counter = setInterval(stopwatch.count,1000);
+    stopwatch.time = 30;
+    //change the "display" div to "00:30"
+    $('#display').html("00:30");
+    stopwatch.start();
+    },
+  start:function(){
     //Use setInterval to start the count here
-  	},
+      counter = setInterval(stopwatch.count,1000);
+    },
   count: function(){
-    stopwatch.time++;
-    var counting= stopwatch.timeConverter(stopwatch.time);
-    $("#display").html(counting);
-	  },
-	timeConverter: function(t){
-    //This function is done. You do not need to touch it. It takes the current time in seconds and converts it to minutes and seconds (mm:ss).
-    var minutes = Math.floor(t/60);
-    var seconds = t - (minutes * 60);
-    if (seconds < 10){
-      seconds = "0" + seconds;
-    }
-    if (minutes === 0){
-      minutes = "00";
-    } else if (minutes < 10){
-      minutes = "0" + minutes;
-    }
-    return minutes + ":" + seconds;
-  }
-};
-
+    stopwatch.time--;
+    var counting= stopwatch.time;
+    $("#display").html("00:"+counting);
+    },
+  };
 // closing script bracket below
 })
