@@ -6,7 +6,7 @@
 
 <!-- style files -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<!-- <link rel="stylesheet" type="text/css" href="bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<!-- Jquery -->
@@ -15,22 +15,16 @@
 
 </head>
 <body>
-<button>Press to Begin</button>
-
-<div id="display">Big Timer</div>
-<div>Q. <span id="question"></span></div>
-<div>1. <span class ="answer" data-trivia="0"></span></div>
-<div>2. <span class ="answer" data-trivia="1"></span></div>
-<div>3. <span class ="answer" data-trivia="2"></span></div>
-<div>4. <span class ="answer" data-trivia="3"></span></div>
-
-press play to begin the game (onclick function to button)
-database with questions and their answers 
-	object with 2 properties
-display 4 choices 3 bad 1 right
-	random pick the 3
-append the right one 
-regardless of answer restart the clock and display a new question and answers
-
+<div id="superContainer">
+		<button type="button" class="btn btn-primary bstyle">Press to Begin</button>
+		<div id="container">
+			<div id="display">Big Timer</div>
+			<div>Q. <span id="question"></span></div>
+			<div class="Answerspot">1. <span class ="answer" data-trivia="0"></span></div>
+			<div class="Answerspot">2. <span class ="answer" data-trivia="1"></span></div>
+			<div class="Answerspot">3. <span class ="answer" data-trivia="2"></span></div>
+			<div class="Answerspot">4. <span class ="answer" data-trivia="3"></span></div>
+		</div>
+</div>
 </body>
 </html>

@@ -1,5 +1,32 @@
+body {
+	background: url(../images/bg_image.jpg) no-repeat no-repeat;
+	background-size: cover;
+}
+#superContainer {
+	margin: 147px auto;
+	background-color: red;
+	width: 600px;
+}
+#container{
+	width: 85%;
+	margin: 0px auto;
+	font-size: 20px;
+	color:white;
+	background-color: blue;
+}
+.bstyle {;
+	margin-left: 230px;
+}
+#display {
+	margin: 0 auto;
+	font-size: 44px;
+	width: 120px;
+}
+
+.Answerspot{
+	margin: 0px 20px;
+}
 .answer {
-	background-color: green;
 	width: 100px;
 	height: 50px;
 }
