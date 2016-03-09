@@ -67,6 +67,7 @@ function RandomQuestion(){
      for (var i = 0; i < random.choices.length; i++) {
       $('[data-trivia="' + [i] + '"]').html(random.choices[i]);
       };
+};
 
     // Pull the data to check if the answer is correct or not
    $(".answer").on('click',function(){
@@ -74,16 +75,17 @@ function RandomQuestion(){
       SelectedAnswer = parseInt(SelectedAnswer);
       
         if (random.choices[SelectedAnswer]===random.answer){
-          alert("You got it Right!")
-          setInterval(startGame,2000);
-          clearInterval(counter);
+          debugger;
+          alert("You got it Right!");
+          RandomQuestion();
+          countdown.time=30;
       } else{
+        debugger;
           alert("Wrong Answer, the correct answer was " + random.answer);
-          setInterval(startGame,2000);
-          clearInterval(counter);
+          RandomQuestion();
+          countdown.time=30;
       }
   });
-};
 
 // This button will start the game - execute the function
      $('button').on('click',play);
@@ -111,19 +113,19 @@ countdown = {
     },
   start:function(){
     //Use setInterval to start the count here
-    counter = setInterval(countdown.count,1000);
+    counter = setTimeout(countdown.count,1000);
     },
   count: function(){
     var counting= countdown.time;
-    if (TotalQs.length==0){
+    $("#display").html("00:"+counting);
+    if (TotalQs.length===0){
       reseter();
     } else if (countdown.time===0){
-      clearInterval(counter);
       startGame();
     } else {
       countdown.time--;
+      counter = setTimeout(countdown.count,1000);
     };
-    $("#display").html("00:"+counting);
     },
   };
 
@@ -131,9 +133,11 @@ function reseter(){
     $("#container").hide();
     TotalQs = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10];
     countdown.time=30;
-    alert("Game is Over")
     $('button').show(2000); 
-    clearInterval(counter); 
+    alert("Game is Over")
 }
 // closing script bracket below
 })
+
+
+// y = setTimeout(countdown.count,1000);
